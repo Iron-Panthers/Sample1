@@ -22,8 +22,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static Hardware hardware;
 	public static Intake intake;
+	public static Hardware hardware;
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -35,9 +35,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		hardware = new Hardware();
-		intake = new Intake(hardware.motorForIntaking);
 		oi = new OI();
+		intake = new Intake(hardware.motorForIntaking);
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
