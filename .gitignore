@@ -1,6 +1,4 @@
 *.class
-build.properties
-.project
-build.xml
 *.jar
 .classpath
+/bin/
