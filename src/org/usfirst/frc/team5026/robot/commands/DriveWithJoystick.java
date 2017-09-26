@@ -7,12 +7,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ExampleCommand extends Command {
+public class DriveWithJoystick extends Command {
 
-    public ExampleCommand() {
+
+    public DriveWithJoystick() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.exampleSubsystem);
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -21,6 +22,7 @@ public class ExampleCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.drive.joystickDrive(Robot.hardware.stick);
     }
 
     // Make this return true when this Command no longer needs to run execute()

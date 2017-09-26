@@ -1,6 +1,10 @@
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.DriveBackwardsForTime;
+import org.usfirst.frc.team5026.robot.commands.DriveForwardsForTime;
+import org.usfirst.frc.team5026.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team5026.robot.commands.IntakeCommand;
+import org.usfirst.frc.team5026.robot.commands.OuttakeCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -11,15 +15,24 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	Joystick stick;
-	Button StickBtnOne = new JoystickButton(stick, 1);
+	
+	public Joystick stick;
+	Button button1 = new JoystickButton(stick, 1);
+	Button button2 = new JoystickButton(stick, 2);
+	Button button3 = new JoystickButton(stick, 3);
+	Button button4 = new JoystickButton(stick, 4);
+	Button button5 = new JoystickButton(stick, 5);
 	
 	public OI() {
 		stick = new Joystick(1);
 	}
 	
 	public void mapButtons() {
-		StickBtnOne.whileHeld(new IntakeCommand());
+		button1.whileHeld(new IntakeCommand());
+		button2.whileHeld(new OuttakeCommand());
+		button3.whileHeld(new DriveWithJoystick());
+		button4.whenPressed(new DriveForwardsForTime(10, 0.7));
+		button5.whenPressed(new DriveBackwardsForTime(10, 0.7));
 	}
 	
 	
