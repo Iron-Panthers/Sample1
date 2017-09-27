@@ -13,9 +13,9 @@ public class Hardware {
 	public Spark rightMotor2;
 	public Spark rightMotor3;
 	public Hardware() {
-		motorForIntaking = new Spark(1);
+		motorForIntaking = new Spark(3);
 		leftMotor1 = new Spark(2);
-		leftMotor2 = new Spark(3);
+		leftMotor2 = new Spark(1);
 		leftMotor3 = new Spark(4);
 		rightMotor1 = new Spark(5);
 		rightMotor2 = new Spark(6);

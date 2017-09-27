@@ -35,7 +35,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		cannon = new Cannon(hardware.motorForShootin);
+		//cannon = new Cannon(hardware.motorForShootin);
 		hardware = new Hardware();
 		intake = new Intake(hardware.motorForIntaking);
 		drive = new Drive();
@@ -104,7 +104,7 @@ public class Robot extends IterativeRobot {
 		//motor.set(1);
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		intake.intake(1);
+		
 	}
 
 	/**
