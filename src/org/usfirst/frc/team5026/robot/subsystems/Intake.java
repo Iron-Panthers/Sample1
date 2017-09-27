@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5026.robot.subsystems;
 
+import org.usfirst.frc.team5026.robot.commands.IntakeCommand;
+
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
@@ -27,6 +29,7 @@ public class Intake extends Subsystem {
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
+    	setDefaultCommand(new IntakeCommand());
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
