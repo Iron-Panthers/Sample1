@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5026.robot.subsystems;
 
+import org.usfirst.frc.team5026.robot.commands.IntakeCommand;
+
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -12,7 +14,7 @@ public class Intake extends Subsystem{
 		motorForIntaking.set(0);
 		motorForIntaking.set(power);
 	}
-	public void outtake(double power) {
+	public void outtake(double power) { //0.5 for outtaking
 		motorForIntaking.set(0);
 		motorForIntaking.set(-Math.abs(power));
 	}
@@ -22,6 +24,6 @@ public class Intake extends Subsystem{
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		
+		setDefaultCommand(new IntakeCommand()); //When Intake is constructed, it will run the IntakeCommand
 	}
 }

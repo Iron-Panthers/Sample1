@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class OuttakeCommand extends Command{
 	public OuttakeCommand() {
-		
+		requires(Robot.intake); //Make sure you only have one thing calling intake at a time
 	}
 
 
