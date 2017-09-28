@@ -10,7 +10,7 @@ public class Hardware {
 	public Spark rightMotor;
 	public Hardware() {
 		motorForIntaking = new Spark(3);
-		leftMotor = new Spark(2);
+		leftMotor = new Spark(0);
 		rightMotor= new Spark(1);
 		motorForShootin = new Talon(8);
 		

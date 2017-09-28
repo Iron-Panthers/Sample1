@@ -23,7 +23,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	public static Drive drive;
 	public static OI oi;
-	public static Cannon cannon;
+	//public static Cannon cannon;
 	public static Intake intake;
 	public static Hardware hardware;
 	public static DriveWithJoystick driving;
