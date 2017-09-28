@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		hardware = new Hardware();
 		oi = new OI();
 		intake = new Intake(hardware.motorForIntaking);
 		drive = new Drive(hardware.leftMotor,hardware.rightMotor);
