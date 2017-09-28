@@ -36,11 +36,11 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		driving = new DriveWithJoystick();
+		hardware = new Hardware();
 		drive = new Drive(hardware.leftMotor,hardware.rightMotor);
+		driving = new DriveWithJoystick();
 		oi = new OI();
 		//cannon = new Cannon(hardware.motorForShootin);
-		hardware = new Hardware();
 		intake = new Intake(hardware.motorForIntaking);
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
