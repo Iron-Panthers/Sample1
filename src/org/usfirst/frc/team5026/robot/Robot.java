@@ -36,8 +36,8 @@ public class Robot extends IterativeRobot {//only one command may run at a time
 	 */
 	@Override
 	public void robotInit() {
-		drive = new Drive(hardware.leftmotor,hardware.rightmotor);
 		hardware = new Hardware();
+		drive = new Drive(hardware.leftmotor,hardware.rightmotor);
 		intake = new Intake(hardware.motorForIntaking);
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());

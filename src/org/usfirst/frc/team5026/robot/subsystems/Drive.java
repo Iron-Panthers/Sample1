@@ -12,8 +12,8 @@ public class Drive extends Subsystem {
 	Spark leftmotor;
 	Spark rightmotor;
 	public Drive(Spark motor1,Spark motor2) {
-		leftmotor = new Spark(0);
-		rightmotor = new Spark(1);
+		leftmotor = motor1;
+		rightmotor = motor2;
 	}
 	public void forwards(double power) {
 		leftmotor.set(power);
