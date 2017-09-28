@@ -2,8 +2,7 @@
 package org.usfirst.frc.team5026.robot;
 
 import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
-import org.usfirst.frc.team5026.robot.commands.IntakeIntakeCommand;
-import org.usfirst.frc.team5026.robot.commands.IntakeOuttakeCommand;
+import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team5026.robot.subsystems.Intake;
 
@@ -21,9 +20,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot {//only one command may run at a time
 	public static Hardware hardware;
 	public static Intake intake;
+	public static Drive drive;
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 
@@ -36,6 +36,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		drive = new Drive(hardware.leftmotor,hardware.rightmotor);
 		hardware = new Hardware();
 		intake = new Intake(hardware.motorForIntaking);
 		oi = new OI();
@@ -110,6 +111,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		
 		Scheduler.getInstance().run();
 	}
 

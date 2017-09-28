@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.DriveBackwardsWithTime;
+import org.usfirst.frc.team5026.robot.commands.DriveForwardsWithTime;
 import org.usfirst.frc.team5026.robot.commands.IntakeIntakeCommand;
 import org.usfirst.frc.team5026.robot.commands.IntakeOuttakeCommand;
 
@@ -12,17 +14,23 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	Joystick stick;
+	public Joystick stick;
 	Button StickBtnOne;
 	Button StickBtnTwo;
+	Button StickBtnFour;
+	Button StickBtnFive;
 	public OI() {
 		stick = new Joystick(1);
 		StickBtnOne = new JoystickButton(stick,1);
 		StickBtnTwo = new JoystickButton(stick,2);
+		StickBtnFour = new JoystickButton(stick,4);
+		StickBtnFive = new JoystickButton(stick,5);
 	}
 	public void mapButtons() {
 		StickBtnOne.whileHeld(new IntakeIntakeCommand());
 		StickBtnTwo.whileHeld(new IntakeOuttakeCommand());
+		StickBtnFour.whileHeld(new DriveForwardsWithTime(1,1));
+		StickBtnFive.whileHeld(new DriveBackwardsWithTime(1,1));
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
