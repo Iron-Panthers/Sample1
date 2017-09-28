@@ -29,8 +29,8 @@ public class OI {
 	public void mapButtons() {
 		StickBtnOne.whileHeld(new IntakeIntakeCommand());
 		StickBtnTwo.whileHeld(new IntakeOuttakeCommand());
-		StickBtnFour.whileHeld(new DriveForwardsWithTime(1,1));
-		StickBtnFive.whileHeld(new DriveBackwardsWithTime(1,1));
+		StickBtnFour.whenPressed(new DriveForwardsWithTime(20,1));
+		StickBtnFive.whenPressed(new DriveBackwardsWithTime(20,1));
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
