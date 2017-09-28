@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.Intake;
 
@@ -20,11 +21,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
+	public static Drive drive;
 	public static OI oi;
 	public static Cannon cannon;
 	public static Intake intake;
 	public static Hardware hardware;
-	public static Drive drive;
+	public static DriveWithJoystick driving;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -34,11 +36,12 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		driving = new DriveWithJoystick();
+		drive = new Drive(hardware.leftMotor,hardware.rightMotor);
 		oi = new OI();
 		//cannon = new Cannon(hardware.motorForShootin);
 		hardware = new Hardware();
 		intake = new Intake(hardware.motorForIntaking);
-		drive = new Drive();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		oi.mapButtons();
