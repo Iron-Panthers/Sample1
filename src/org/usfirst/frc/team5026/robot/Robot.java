@@ -1,7 +1,9 @@
 
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
+import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team5026.robot.subsystems.Intake;
 
@@ -25,6 +27,8 @@ public class Robot extends IterativeRobot {
 	public static Intake intake;
 	public static Hardware hardware;
 	public static OI oi;
+	public static Drive drive;
+	public static DriveWithJoystick driveWithJoystick;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -37,7 +41,9 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		intake = new Intake(hardware.motorForIntaking);
+		drive = new Drive(hardware.leftMotor,hardware.rightMotor);
 		chooser.addDefault("Default Auto", new ExampleCommand());
+		driveWithJoystick = new DriveWithJoystick();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		oi.mapButtons();
