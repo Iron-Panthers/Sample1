@@ -1,7 +1,7 @@
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.commands.groundIntakeIntake;
-import org.usfirst.frc.team5026.robot.commands.groundIntakeOuttake;
+import org.usfirst.frc.team5026.robot.commands.GroundIntakeIntake;
+import org.usfirst.frc.team5026.robot.commands.GroundIntakeOuttake;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	
-	Joystick stick;
+	public Joystick stick;
 	Button StickBtn_One;
 	Button StickBtn_Two;
 	public OI()
@@ -25,7 +25,7 @@ public class OI {
 	}
 	public void mapButtons()
 	{
-		StickBtn_One.whileHeld(new groundIntakeIntake());
-		StickBtn_Two.whileHeld(new groundIntakeOuttake());
+		StickBtn_One.whileHeld(new GroundIntakeIntake());
+		StickBtn_Two.whileHeld(new GroundIntakeOuttake());
 	}
 }

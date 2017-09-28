@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class groundIntakeOuttake extends Command {
+public class GroundIntakeOuttake extends Command {
 
-    public groundIntakeOuttake() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public GroundIntakeOuttake() {
+        requires(Robot.intakeSubsystem);
+    	
     }
 
     // Called just before this Command runs the first time
@@ -30,11 +30,12 @@ public class groundIntakeOuttake extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.intakeSubsystem.stop();
+    	
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.intakeSubsystem.stop();
     }
 }

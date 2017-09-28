@@ -1,10 +1,12 @@
 package org.usfirst.frc.team5026.robot.subsystems;
-import edu.wpi.first.wpilibj.Talon;
+import org.usfirst.frc.team5026.robot.commands.GroundIntakeIntake;
+
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Intake extends Subsystem {
-	public static Talon motor;
-	public Intake(Talon m){
+	public static Spark motor;
+	public Intake(Spark m){
 		motor=m;
 	}
 	public void intake(){
@@ -20,8 +22,7 @@ public class Intake extends Subsystem {
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new GroundIntakeIntake());
     }
 }
 
