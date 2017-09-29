@@ -15,8 +15,8 @@ public class Drive extends Subsystem {
 		motor2=m2;
 	}
 	public void goForwards(double power) {
-		motor1.set(.7);
-		motor2.set(.7);
+		motor1.set(power);
+		motor2.set(power);
 	}
 	public void goBackwards(double power) {
 		motor1.set(power);

@@ -20,24 +20,25 @@ public class DriveWithJoyStick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
     	double powerY=Robot.oi.stick.getY();
-    	if(Robot.oi.stick.getY()>0)
-    	{
+    	if(powerY>0) {
     		Robot.driveSubsystem.goForwards(powerY);
     	}
-    	if(Robot.oi.stick.getY()<0)
-    	{
+    	else if(powerY<0) {
     		Robot.driveSubsystem.goBackwards(powerY);
     	}
-    	if(Robot.oi.stick.getY()==0)
-    	{
+    	else if(powerY==0) {
     		Robot.driveSubsystem.stop();
     	}
     	Robot.oi.stick.getX();
     	
     	double powerX=Robot.oi.stick.getX();
-    	if(Robot.oi.stick.getX()>0) {
-    		Robot.driveSubsystem.turnRight
+    	if(powerX>0) {
+    		Robot.driveSubsystem.turnRight(powerX);
+    	}
+    	else if(powerX<0) {
+    		Robot.driveSubsystem.turnLeft(powerX);
     	}
     }
 

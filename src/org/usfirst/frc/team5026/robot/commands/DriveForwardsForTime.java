@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5026.robot.commands;
 
+import org.usfirst.frc.team5026.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.TimedCommand;
 
 /**
@@ -9,7 +11,7 @@ public class DriveForwardsForTime extends TimedCommand {
 
     public DriveForwardsForTime(double timeout) {
         super(timeout);
-        requres()
+        
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -20,6 +22,7 @@ public class DriveForwardsForTime extends TimedCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.driveSubsystem.goForwards(.7);
     }
 
     // Called once after timeout
