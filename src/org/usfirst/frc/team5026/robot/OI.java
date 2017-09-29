@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.DriveBackwardsForTime;
 import org.usfirst.frc.team5026.robot.commands.DriveForwardsForTime;
 import org.usfirst.frc.team5026.robot.commands.IntakeCommand;
 import org.usfirst.frc.team5026.robot.commands.OuttakeCommand;
@@ -17,16 +18,19 @@ public class OI {
 	Button stickBtnOne;
 	Button stickBtnTwo;
 	Button stickBtnFour;
+	Button stickBtnFive;
 	public OI(){
 		stick = new Joystick(1);
 		stickBtnOne = new JoystickButton(stick,1);
 		stickBtnTwo = new JoystickButton(stick,2);
 		stickBtnFour = new JoystickButton(stick,4);
+		stickBtnFive = new JoystickButton(stick,5);
 	}
 	public void mapButtons() {
 		stickBtnOne.whileHeld(new IntakeCommand());
 		stickBtnTwo.whileHeld(new OuttakeCommand());
 		stickBtnFour.whenPressed(new DriveForwardsForTime(5));
+		stickBtnFive.whenPressed(new DriveBackwardsForTime(5));
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
