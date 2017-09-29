@@ -23,10 +23,10 @@ public class DriveWithJoystick extends Command {
     protected void execute() {
     	double y = Robot.oi.stick.getY();
     	double x = Robot.oi.stick.getX();
-    	if (x>0) {
+    	if (x>.20) {
     		Robot.drive.turnRight();
     	}
-    	if (x<0) {
+    	if (x<.20) {
     		Robot.drive.turnLeft();
     	}
     	else {
