@@ -24,6 +24,8 @@ public class Hardware { //Make sure that all subsystems are in file with Hardwar
 		//motorForFiring = new Talon(8); 
 		leftMotor = new Spark(0);
 		rightMotor = new Spark(1);
+		leftMotor.setInverted(false);
+		rightMotor.setInverted(false);
 		
 	}
 }
