@@ -8,6 +8,8 @@ public class Hardware {
 	public Spark motorForIntaking;
 	public Spark leftmotor;
 	public Spark rightmotor;
+	boolean isLeftInverted = false;
+	boolean isRightInverted = false;
 	/*public Spark leftMotor1;
 	public Spark leftMotor2;
 	public Spark leftMotor3;
@@ -19,7 +21,9 @@ public class Hardware {
 	public Hardware() {
 		motorForIntaking = new Spark(3);
 		leftmotor = new Spark(0);
+		leftmotor.setInverted(isLeftInverted);
 		rightmotor = new Spark(1);
+		rightmotor.setInverted(isRightInverted);
 		/*leftMotor1 = new Spark(1);
 		leftMotor2 = new Spark(2);
 		leftMotor3 = new Spark(4);
