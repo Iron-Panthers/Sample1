@@ -1,13 +1,15 @@
 package org.usfirst.frc.team5026.robot.subsystems;
+import org.usfirst.frc.team5026.robot.commands.IntakeCommand;
+
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Intake extends Subsystem {
 	public intakeouttakeandstop Geartwister;
-	public Spark motor1;
-	public Intake () {
-		motor1 = new Spark(3);
-		Geartwister = new intakeouttakeandstop(motor1);
+	public Spark motorForIntaking;
+	public Intake (Spark motorForIntaking) {
+		Geartwister = new intakeouttakeandstop(motorForIntaking);
+		this.motorForIntaking = motorForIntaking;
 	} 
 	public void intake() {
 		Geartwister.intake(1.0);
@@ -21,7 +23,7 @@ public class Intake extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		
+		setDefaultCommand(new IntakeCommand());
 	}
 	
 }

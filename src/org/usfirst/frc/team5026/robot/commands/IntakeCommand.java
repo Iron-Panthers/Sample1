@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class IntakeCommand extends Command{
 	public IntakeCommand() {
+		requires(Robot.intakeSubsystem);
     } 
 
     // Called just before this Command runs the first time

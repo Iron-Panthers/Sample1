@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.commands.IntakeCommand;
+import org.usfirst.frc.team5026.robot.commands.DriveBackwardCommand;
+import org.usfirst.frc.team5026.robot.commands.DriveForwardCommand;
 import org.usfirst.frc.team5026.robot.commands.OuttakeCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -21,8 +22,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 			stickButtonTwo = new JoystickButton(stick, 2);
 		}
 		public void mapButtons() {
-			stickButtonOne.whileHeld(new IntakeCommand());
-			stickButtonTwo.whileHeld(new OuttakeCommand());
+			stickButtonOne.whileHeld(new DriveForwardCommand(4));
+			stickButtonTwo.whileHeld(new DriveBackwardCommand(4));
 		}
 	} 
 	//// CREATING BUTTONS
