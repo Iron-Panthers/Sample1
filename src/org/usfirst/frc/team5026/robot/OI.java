@@ -30,7 +30,7 @@ public class OI {
 	public void mapButtons() {
 		StickBtnOne.whileHeld(new IntakeCommand());
 		StickBtnTwo.whileHeld(new OuttakeCommand());
-		StickBtnFour.whileHeld(new DriveForwardsForTime(time,1)); //20 seconds, runs at full power
-		StickBtnFive.whileHeld(new DriveBackwardsForTime(time,1));//""
+		StickBtnFour.whenPressed(new DriveForwardsForTime(time,0.5)); //3 seconds, runs at full power
+		StickBtnFive.whenPressed(new DriveBackwardsForTime(time,0.5));//""
 	}
 }
