@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	public double time = 20;
+	public double time = 3;
 	public Joystick stick;
 	public Button StickBtnOne;
 	public Button StickBtnTwo;
@@ -30,7 +30,7 @@ public class OI {
 	public void mapButtons() {
 		StickBtnOne.whileHeld(new IntakeCommand());
 		StickBtnTwo.whileHeld(new OuttakeCommand());
-		StickBtnFour.whenPressed(new DriveForwardsForTime(time,1)); //20 seconds, runs at full power
-		StickBtnFive.whenPressed(new DriveBackwardsForTime(time,1));//""
+		StickBtnFour.whileHeld(new DriveForwardsForTime(time,1)); //20 seconds, runs at full power
+		StickBtnFive.whileHeld(new DriveBackwardsForTime(time,1));//""
 	}
 }
