@@ -9,10 +9,13 @@ import edu.wpi.first.wpilibj.command.TimedCommand;
  */
 public class DriveForwardsForTime extends TimedCommand {
 	public double drivePower;
+	public double duration;
     public DriveForwardsForTime(double timeout, double power) {
         super(timeout);
         requires(Robot.drive);
         drivePower = power;
+        duration = timeout;
+        super.setTimeout(duration);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -24,6 +27,7 @@ public class DriveForwardsForTime extends TimedCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.drive.goForwards(drivePower);
+    	duration+=0.01;
     }
 
     // Called once after timeout
