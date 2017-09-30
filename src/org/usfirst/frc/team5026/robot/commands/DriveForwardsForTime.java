@@ -27,7 +27,12 @@ public class DriveForwardsForTime extends TimedCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.drive.goForwards(drivePower);
-    	duration+=0.01;
+    	//if(Robot.oi.StickBtnFour.) {
+    	if(Robot.oi.StickBtnFour.get()) { //Test if it continues if button 5, etc is pressed while 4 is not
+    		duration+=0.01;
+    	}
+    	
+    	//}	
     }
 
     // Called once after timeout

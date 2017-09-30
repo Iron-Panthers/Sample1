@@ -28,7 +28,9 @@ public class DriveBackwardsForTime extends TimedCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.drive.goBackwards(drivePower);
-    	duration+=0.01;
+    	if(Robot.oi.StickBtnFive.get()) { //Test if the motor keeps spinning if button 4 is pressed, etc
+    		duration+=0.01;
+    	}
     }
 
     // Called once after timeout
