@@ -30,6 +30,7 @@ public class DriveForwardsForTime extends TimedCommand {
     	//if(Robot.oi.StickBtnFour.) {
     	if(Robot.oi.StickBtnFour.get()) { //Test if it continues if button 5, etc is pressed while 4 is not
     		duration+=0.01;
+    		System.out.println("Running DriveForwardsForTime (Button 4)"+duration);
     	}
     	
     	//}	
