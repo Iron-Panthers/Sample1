@@ -2,6 +2,7 @@ package org.usfirst.frc.team5026.robot.subsystems;
 
 import org.usfirst.frc.team5026.robot.commands.DriveWithJoystickCommand;
 
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -9,31 +10,24 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Drive extends Subsystem {
-	Spark leftmotor;
-	Spark rightmotor;
+	public RobotDrive robotDrive;
 	public Drive(Spark motor1,Spark motor2) {
-		leftmotor = motor1;
-		rightmotor = motor2;
+		robotDrive = new RobotDrive(motor1,motor2);
 	}
 	public void forwards(double power) {
-		leftmotor.set(power);
-		rightmotor.set(power);
+		robotDrive.setLeftRightMotorOutputs(power, power);
 	}
 	public void backwards(double power) {
-		leftmotor.set(-power);
-		rightmotor.set(-power);
+		robotDrive.setLeftRightMotorOutputs(-power, -power);
 	}
 	public void stop() {
-		leftmotor.set(0);
-		rightmotor.set(0);
+		robotDrive.stopMotor();
 	}
 	public void turnLeft(double power) {
-		leftmotor.set(-power);
-		rightmotor.set(power);
+		robotDrive.setLeftRightMotorOutputs(-power, power);
 	}
 	public void turnRight(double power) {
-		leftmotor.set(power);
-		rightmotor.set(-power);
+		robotDrive.setLeftRightMotorOutputs(power, -power);
 	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
