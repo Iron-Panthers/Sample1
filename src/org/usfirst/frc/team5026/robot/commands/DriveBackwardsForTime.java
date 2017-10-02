@@ -15,7 +15,7 @@ public class DriveBackwardsForTime extends TimedCommand {
         requires(Robot.drive);
         drivePower = power;
         duration=timeout;
-        super.setTimeout(duration);
+        
         
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -32,6 +32,7 @@ public class DriveBackwardsForTime extends TimedCommand {
     		duration+=0.02;
     		//System.out.println("Running DriveBackwardsForTime (Button 5)"+duration);
     	}
+    	super.setTimeout(duration);
     }
 
     // Called once after timeout
