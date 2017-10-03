@@ -22,7 +22,7 @@ public class DriveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.joystickDrive(Robot.hardware.stick);
+    	Robot.drive.userArcadeDrive(Robot.oi.stick.getY(), Robot.oi.stick.getX());
     }
 
     // Make this return true when this Command no longer needs to run execute()
