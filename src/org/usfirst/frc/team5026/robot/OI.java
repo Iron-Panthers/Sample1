@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 	public class OI {
-		Joystick stick;
+		public Joystick stick;
 		Button stickButtonOne;
 		Button stickButtonTwo;
 		public OI() {
