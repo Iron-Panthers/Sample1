@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.DriveBackwardsForTime;
+import org.usfirst.frc.team5026.robot.commands.DriveForwardsForTime;
 import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
@@ -40,11 +42,13 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		hardware = new Hardware();
 		intake = new Intake(hardware.intakeMotor);
-		
-		oi.mapButtons();
+		drive = new Drive(Robot.hardware.leftMotor, Robot.hardware.rightMotor);
 		chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser.addObject("Drive Forwards For 5 Seconds", new DriveForwardsForTime(5, 0.5));
+		chooser.addObject("Drive Backwards For 5 Seconds", new DriveBackwardsForTime(5, 0.5));
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		oi.mapButtons();
 	}
 
 	/**
@@ -76,6 +80,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
+		autonomousCommand.start();
+		SmartDashboard.putData("Auto Mode", autonomousCommand);
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
