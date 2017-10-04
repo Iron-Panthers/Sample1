@@ -17,20 +17,22 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	
 	public Joystick stick;
-	Button button1 = new JoystickButton(stick, 1);
-	Button button2 = new JoystickButton(stick, 2);
-	Button button3 = new JoystickButton(stick, 3);
-	Button button4 = new JoystickButton(stick, 4);
-	Button button5 = new JoystickButton(stick, 5);
+	public Button button1;
+	public Button button2;
+	public Button button4;
+	public Button button5;
 	
 	public OI() {
 		stick = new Joystick(1);
+		button1 = new JoystickButton(stick, 1);
+		button2 = new JoystickButton(stick, 2);
+		button4 = new JoystickButton(stick, 4);
+		button5 = new JoystickButton(stick, 5);
 	}
 	
 	public void mapButtons() {
 		button1.whileHeld(new IntakeCommand());
 		button2.whileHeld(new OuttakeCommand());
-		button3.whileHeld(new DriveWithJoystick());
 		button4.whenPressed(new DriveForwardsForTime(10, 0.7));
 		button5.whenPressed(new DriveBackwardsForTime(10, 0.7));
 	}

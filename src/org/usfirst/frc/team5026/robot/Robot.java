@@ -40,11 +40,11 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		hardware = new Hardware();
 		intake = new Intake(hardware.intakeMotor);
-		
-		oi.mapButtons();
+		drive = new Drive(Robot.hardware.leftMotor, Robot.hardware.rightMotor);
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		oi.mapButtons();
 	}
 
 	/**
