@@ -23,7 +23,7 @@ public class DriveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.robotDrive.arcadeDrive(Robot.oi.stick); 
+    	Robot.drive.useArcadeDrive(Robot.oi.stick.getY(),Robot.oi.stick.getX()); 
     	SmartDashboard.putNumber("Joystick X", Robot.oi.stick.getX()); //Prints X and Y joystick value in SmartDashboard
     	SmartDashboard.putNumber("Joystick Y", Robot.oi.stick.getY());
     }
