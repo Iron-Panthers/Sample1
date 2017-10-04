@@ -13,15 +13,16 @@ public class Drive extends Subsystem {
 	public RobotDrive robotDrive;
 	public Drive(Spark leftMotor, Spark rightMotor) {
 		robotDrive = new RobotDrive(leftMotor,rightMotor);
+		robotDrive.setSafetyEnabled(false);
 	}
 	public void drive(double power) { //Can be negative or positive
 		robotDrive.drive(power, power);
 	}
 	public void goForwards(double power) {
-		robotDrive.drive(Math.abs(power), Math.abs(power));
+		robotDrive.setLeftRightMotorOutputs(Math.abs(power), Math.abs(power));
 	}
 	public void goBackwards(double power) {
-		robotDrive.drive(-Math.abs(power), -Math.abs(power));
+		robotDrive.setLeftRightMotorOutputs(-1*Math.abs(power), -1*Math.abs(power));
 	}
 	public void stop() {
 		robotDrive.stopMotor();
