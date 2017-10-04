@@ -29,6 +29,9 @@ public class Drive extends Subsystem {
 	public void turnRight(double power) {
 		robotDrive.setLeftRightMotorOutputs(power, -power);
 	}
+	public void useArcadeDrive(double Yaxis, double Xaxis) {
+		robotDrive.arcadeDrive(Yaxis, Xaxis);
+	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
