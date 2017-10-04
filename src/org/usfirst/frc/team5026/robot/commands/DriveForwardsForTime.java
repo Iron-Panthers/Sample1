@@ -22,7 +22,7 @@ public class DriveForwardsForTime extends TimedCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveSubsystem.goForwards(.7);
+    	Robot.driveSubsystem.arcadeDrive(.7,0);
     }
 
     // Called once after timeout
@@ -32,5 +32,6 @@ public class DriveForwardsForTime extends TimedCommand {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.driveSubsystem.arcadeDrive(0,0);
     }
 }

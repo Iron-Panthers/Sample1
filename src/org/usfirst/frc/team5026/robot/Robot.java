@@ -1,10 +1,10 @@
 
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -29,7 +29,7 @@ public class Robot extends IterativeRobot {
 	public Spark spark1;
 	public Spark spark2;//drive spark 0
 	public Spark spark3;//drive spark 1
-	public static Drive driveSubsystem;
+	public static RobotDrive driveSubsystem;
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -38,9 +38,11 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		oi = new OI();
-		spark1 = new Spark(3);
+		spark1 = new Spark(2);
 		intakeSubsystem = new Intake(spark1);
-		
+		spark2=new Spark(3);
+		spark3=new Spark(4);
+		driveSubsystem=new RobotDrive(spark2,spark3);
 		oi.mapButtons();
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());

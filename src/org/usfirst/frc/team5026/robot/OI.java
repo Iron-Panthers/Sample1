@@ -1,11 +1,10 @@
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.commands.GroundIntakeIntake;
-import org.usfirst.frc.team5026.robot.commands.GroundIntakeOuttake;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.usfirst.frc.team5026.robot.commands.GroundIntakeIntake;
+import org.usfirst.frc.team5026.robot.commands.GroundIntakeOuttake;
 
 /**
  * This class is the glue that binds the controls on the physical operator

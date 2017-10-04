@@ -21,6 +21,7 @@ public class DriveBackwardsForTime extends TimedCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.driveSubsystem.arcadeDrive(-.5,0);
     }
 
     // Called once after timeout
@@ -30,6 +31,6 @@ public class DriveBackwardsForTime extends TimedCommand {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.driveSubsystem.stop();
+    	Robot.driveSubsystem.arcadeDrive(0,0);
     }
 }
