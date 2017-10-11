@@ -4,6 +4,7 @@ import org.usfirst.frc.team5026.robot.commands.DriveBackwardsForTime;
 import org.usfirst.frc.team5026.robot.commands.DriveForwardsForTime;
 import org.usfirst.frc.team5026.robot.commands.IntakeCommand;
 import org.usfirst.frc.team5026.robot.commands.OuttakeCommand;
+import org.usfirst.frc.team5026.robot.commands.ShooterCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -18,6 +19,7 @@ public class OI {
 	public Joystick stick;
 	public Button button1;
 	public Button button2;
+	public Button button3;
 	public Button button4;
 	public Button button5;
 	
@@ -25,6 +27,7 @@ public class OI {
 		stick = new Joystick(1);
 		button1 = new JoystickButton(stick, 1);
 		button2 = new JoystickButton(stick, 2);
+		button3 = new JoystickButton(stick, 3);
 		button4 = new JoystickButton(stick, 4);
 		button5 = new JoystickButton(stick, 5);
 	}
@@ -32,6 +35,7 @@ public class OI {
 	public void mapButtons() {
 		button1.whileHeld(new IntakeCommand());
 		button2.whileHeld(new OuttakeCommand());
+		button3.whileHeld(new ShooterCommand(Robot.dadamPower));
 		button4.whenPressed(new DriveForwardsForTime(10, 0.7));
 		button5.whenPressed(new DriveBackwardsForTime(10, 0.7));
 	}

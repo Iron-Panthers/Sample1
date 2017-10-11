@@ -7,6 +7,7 @@ import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team5026.robot.subsystems.Intake;
+import org.usfirst.frc.team5026.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -29,6 +30,8 @@ public class Robot extends IterativeRobot {
 	public static Intake intake;
 	public static Drive drive;
 	public static Hardware hardware;
+	public static Shooter shooter;
+	public static double dadamPower;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -39,10 +42,12 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		dadamPower = 0.5;
 		oi = new OI();
 		hardware = new Hardware();
-		intake = new Intake(hardware.intakeMotor);
+		intake = new Intake(Robot.hardware.intakeMotor);
 		drive = new Drive(Robot.hardware.leftMotor, Robot.hardware.rightMotor);
+		shooter = new Shooter(Robot.hardware.motorForShooting);
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		chooser.addObject("Drive Forwards For 5 Seconds", new DriveForwardsForTime(5, 0.5));
 		chooser.addObject("Drive Backwards For 5 Seconds", new DriveBackwardsForTime(5, 0.5));
